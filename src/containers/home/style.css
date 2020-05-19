@@ -1,0 +1,77 @@
+.homePageContainer {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.homePageSpan {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 36px;
+    border-right: solid 4px transparent;
+    color: transparent;
+    width: 0;
+}
+
+.homePageSpan:nth-child(1){
+    width: 8ch;
+    animation: 0.5s cursorAnimation step-end 3 forwards,
+    1s typingAnimation steps(8) forwards;
+}
+
+.homePageSpan:nth-child(2){
+    width: 20ch;
+    animation: 0.5s cursorAnimation step-end 2s 5 forwards,
+    2s typingAnimation steps(20) 2s forwards;
+}
+
+.homePageSpan:nth-child(3){
+    width: 37ch;
+    animation: 0.5s cursorAnimation step-end 4.5s 7 forwards,
+    3s typingAnimation steps(37) 4.5s forwards;
+}
+
+.homePageSpan:nth-child(4){
+    width: 34ch;
+    animation: 0.5s cursorAnimation step-end 8s 7 forwards,
+    3s typingAnimation steps(34) 8s forwards;
+}
+
+.homePageSpan:nth-child(5){
+    width: 29ch;
+    animation: 0.5s cursorAnimation step-end 11s 7 forwards,
+    3s typingAnimation steps(29) 11s forwards;
+}
+
+.homePageSpan:nth-child(6){
+    width: 38ch;
+    animation: 0.5s cursorAnimation step-end 14s 7 forwards,
+    3s typingAnimation steps(38) 14s forwards;
+}
+
+@keyframes cursorAnimation {
+    0%{
+        border-color: orange;
+    }
+    25%{
+        border-color: transparent;
+    }
+    50%{
+        border-color: orange;
+    }
+    100%{
+        border-color: transparent;
+    }
+}
+
+@keyframes typingAnimation {
+    from{
+        width: 0;
+        color: transparent;
+    }
+    to{
+        color: white;
+    }
+}

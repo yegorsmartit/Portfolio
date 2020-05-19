@@ -1,0 +1,55 @@
+.border_container {
+    margin-top: 5px;
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px black;
+    color: orange;
+    text-decoration: none;
+    font-size: 20px;
+    border: solid 2px black;
+    /*border-radius: 15px;*/
+}
+
+.border_container:before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: -2px;
+    /*left: 0;*/
+    width: calc(100% + 4px);
+    height: calc(100% - 12px);
+    background: slategrey;
+    overflow: hidden;
+    transition: 0.4s ease-in-out;
+    transform: scaleY(1);
+}
+
+.border_container:hover:before{
+    transform: scaleY(0);
+}
+
+.border_container:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 6px;
+    /*left: 0;*/
+    width: calc(100% - 12px);
+    height: calc(100% + 4px);
+    background: slategrey;
+    overflow: hidden;
+    transition: 0.4s ease-in-out;
+    transform: scaleX(1);
+    transition-delay: 0.3s;
+}
+
+.border_container:hover:after{
+    transform: scaleX(0);
+}
+
+a span {
+    position: relative;
+    z-index: 3;
+}

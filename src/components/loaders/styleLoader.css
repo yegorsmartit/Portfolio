@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #8D8F92;
+}
+
+svg {
+    width: 0;
+    height: 0;
+}
+
+.bubbleLoaderContainer{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    filter: url(#startLoaderId);
+}
+
+.bubbleLoaderContainer span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    animation: bubbleAnimation 5s ease-in-out infinite;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+.bubbleLoaderContainer span:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 30px #03a9f4;
+    background: linear-gradient(#fce4ec, #03a9f4);
+    border-radius: 50%;
+}
+
+@keyframes bubbleAnimation {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%,100%{
+        transform: rotate(-360deg);
+    }
+}
+
+
+
+.liquidDiv{
+    position: relative;
+    width: 300px;
+    height: 50px;
+    filter: url(#startLoaderId);
+    left: -50px;
+    top: 205px;
+    box-shadow: 0 0 30px #03a9f4;
+    background: linear-gradient(#fce4ec, #03a9f4);
+    /*border-radius: 10px;*/
+}
+
+
+
+.loadingContainer{
+    position: relative;
+    top: 120px;
+    left:-170px;
+}
+
+.loadingContainer span{
+    position: relative;
+    color: orange;
+    font-size: 2em;
+    letter-spacing: 6px;
+    animation: loadingAnimation 2s ease-in-out infinite;
+    animation-delay: calc(0.2s * var(--i));
+    display: inline-block;
+}
+
+@keyframes loadingAnimation {
+    0%,40%,80%{
+        transform: translateY(0);
+    }
+     100%{
+        transform: translateY(15px);
+    }
+}

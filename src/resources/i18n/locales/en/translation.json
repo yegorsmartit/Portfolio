@@ -1,0 +1,14 @@
+{
+    "main"      : "MAIN",
+    "skills"    : "SKILLS" ,
+    "projects"  : "PROJECTS",
+    "themes"    : "THEMES",
+    "dark"      : "dark",
+    "light"     : "light",
+    "languages" : "LANGUAGES",
+    "russian"   : "russian",
+    "english"   : "english",
+    "postal"    : "postal",
+    "parallax"  : "parallax"
+
+}

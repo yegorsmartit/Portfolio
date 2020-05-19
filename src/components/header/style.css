@@ -1,0 +1,60 @@
+.common_header {
+  background-color: transparent;
+  display:flex;
+  flex-direction: row;
+  margin: 0vh 40vh 0vh 40vh;
+}
+
+.common_header_social_net_container .tooltip_text {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.common_header_social_net_container:hover .tooltip_text {
+  visibility: visible;
+}
+
+
+
+a:hover {
+  background		: #ffffff;	/*необходимо для IE6*/
+  text-decoration	: none;
+}
+a.tooltip span {
+  display			: none;
+  padding			: 2px 3px;
+  margin-left		: 8px;
+  width			: 130px;
+}
+a.tooltip:hover span {
+  display			: inline;
+  position		: absolute;
+  background		: #ffffff;
+  border			: 1px solid #cccccc;
+  color			: #6c6c6c;
+}
+
+
+.tooltip_class_container {
+  display: none;
+  visibility: hidden;
+  /*z-index: -2;*/
+
+}
+
+.common_header_social_net_container:hover div{
+  display: flex;
+  visibility: visible;
+  /*z-index: -2;*/
+
+}
+
