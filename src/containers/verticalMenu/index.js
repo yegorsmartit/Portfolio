@@ -14,11 +14,11 @@ const VerticalMenu = () =>{
   const [menuStatus, setMenuStatus] = useState('');
   let location = useLocation();
   const [ cardThemeParalax, setCardThemeParalax ] = useContext( ThemesStatus);
-  const [ cardThemePostal, setCardThemePostal ] = useContext( ThemesStatus);
-  const [ citeDarkTheme, setCiteDarkTheme ] = useContext( ThemesStatus);
-  const [ citeLightTheme, setCiteLightTheme ] = useContext( ThemesStatus);
-  const [ citeEnglishTheme, setCiteEnglishTheme] = useContext( ThemesStatus);
-  const [ citeRussianTheme, setCiteRussianTheme] = useContext( ThemesStatus);
+  const [ cardThemePostal,  setCardThemePostal ]  = useContext( ThemesStatus);
+  const [ citeDarkTheme,    setCiteDarkTheme ]    = useContext( ThemesStatus);
+  const [ citeLightTheme,   setCiteLightTheme ]   = useContext( ThemesStatus);
+  const [ citeEnglishTheme, setCiteEnglishTheme]  = useContext( ThemesStatus);
+  const [ citeRussianTheme, setCiteRussianTheme]  = useContext( ThemesStatus);
 
 
   const root = document.documentElement;

@@ -21,7 +21,7 @@ const store = initStore();
 sagaMiddleware.run(rootSaga);
 
 const app = (
-  <Suspense fallback={ "Loading..." }>
+  <Suspense fallback={ <BubbleLoader/> }>
     <ThemesStatusProvider>
       <MenuStatusProvider>
         <Provider store={store} >

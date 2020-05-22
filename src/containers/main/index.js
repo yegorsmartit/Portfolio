@@ -38,9 +38,10 @@ const Main = props =>{
   //
   return (
     <div className="main_container" id={`particles-js`}>
+      <Particles  params={ particlesParams } style={{ width: '100%', position: 'fixed' }} />
       <div className={`${menuStatusContent} contextContainer`}>
         <StableHeader/>
-        <Particles  params={ particlesParams } style={{ width: '100%', position: 'fixed' }} />
+        {/*<Particles  params={ particlesParams } style={{ width: '100%', position: 'fixed' }} />*/}
         <Switch>
           <Route path="/project"  component = { Project } exact />
           <Route path="/projects"  component = { Projects }  exact />
