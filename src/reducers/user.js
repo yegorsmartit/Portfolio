@@ -1,6 +1,4 @@
-import {
-    SET_USER,
-} from '../constants/user';
+import { SET_USER, } from '../constants/user';
 
 const initialState = null;
 

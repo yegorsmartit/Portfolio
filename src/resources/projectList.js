@@ -1,5 +1,6 @@
   export const inviteMe = {
     title: "inviteMe",
+    imgTitle: "invite_me",
     technologies: ["node js, ", "express, ", "mongodb, ", "mongoose, ", " react native, ", "redux"],
     control: ["trello, ", "every day meetings by hangout"],
     process: "from scratch till release",
@@ -16,6 +17,7 @@
 
   export const DRNKAR = {
     title: "DRNK AR",
+    imgTitle: "drnk",
     technologies: ["react native, ", "redux, ", "GraphQl, ", "TypeScript"],
     control: ["asana, ", "every day meetings by hangout"],
     process: "work in team",
@@ -39,6 +41,7 @@
 
   export const TextRecognition = {
     title: "Text recognition NDA",
+    imgTitle: "nda",
     technologies: ["react native, ", "redux, ", "node js, ", "express, ", "mongo db, ", "mongoose"],
     control: ["trello, ", "every day meetings by skype"],
     process: "from scratch till release",
@@ -51,6 +54,7 @@
 
   export const workControl = {
     title: "work control NDA",
+    imgTitle: "nda",
     technologies: ["react native, ", "redux, ", "node js, ", "express, ", "mysql, ", "sequelize"],
     control: ["trello, ", "every day meetings by skype"],
     process: "from scratch till release",
@@ -65,6 +69,7 @@
 
   export const mixFit = {
     title: "Mix fit",
+    imgTitle: "mix_fit",
     technologies: ["react native, ", "redux"],
     control: ["trello, ", "every day meetings by hangout"],
     process: "work in team",
@@ -79,6 +84,7 @@
 
   export const CommunicationsControl = {
     title: "communications control NDA",
+    imgTitle: "nda",
     technologies: ["react native, ", "redux, ", "node js, ", "express, ", "mysql, ", "sequelize"],
     control: ["trello, ", "every day meetings by skype"],
     process: "from scratch till release",
@@ -89,6 +95,7 @@
 
   export const StaffControl = {
     title: "staff control NDA",
+    imgTitle: "nda",
     technologies: ["react native, ", "redux, ", "node js, ", "express, ", "mysql, ", "sequelize"],
     control: ["trello, ", "every day meetings by skype"],
     process: "from scratch till release",
@@ -99,6 +106,7 @@
 
   export const privetMir = {
     title: "Privet Mir",
+    imgTitle: "privet_mir",
     technologies: ["react, ", "redux, ", "html css",],
     control: ["trello, ", "every day meetings by hangout"],
     process: "work in team",
@@ -112,6 +120,7 @@
 
   export const wLingua = {
     title: "WLingua",
+    imgTitle: "w_lingua",
     technologies: ["react, ", "react native, ", "redux, ", "html css",],
     control: ["trello, ", "every day meetings by hangout"],
     process: "work in team",

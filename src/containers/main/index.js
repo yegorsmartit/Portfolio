@@ -43,10 +43,10 @@ const Main = props =>{
         <StableHeader/>
         {/*<Particles  params={ particlesParams } style={{ width: '100%', position: 'fixed' }} />*/}
         <Switch>
-          <Route path="/project"  component = { Project } exact />
-          <Route path="/projects"  component = { Projects }  exact />
           <Route path="/"  component = { HomePage }  exact />
           <Route path="/skills"  component = { Skills }  exact />
+          <Route path="/projects"  component = { Projects }  exact />
+          <Route path="/project/:title"  component = { Project } exact />
         </Switch>
         {/*<div className="menu_buttons_container">*/}
         {/*<ButtonBOC onClick={ onClickButtonHandler} title={'skills'}    icon={'fas fa-user-cog'}/>*/}

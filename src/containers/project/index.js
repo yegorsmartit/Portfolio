@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {useEffect, useContext } from 'react';
+import  { useLocation }  from "react-router-dom";
 import './projectStyle.css';
 import { ThemesStatus } from "../../contexts/themes";
 import test from "../../resources/images/wLingua/wLingua1.png";
@@ -9,38 +10,26 @@ import test3 from "../../resources/images/wLingua/wLingua3.png";
 import test4 from "../../resources/images/wLingua/wLingua4.png";
 import test5 from "../../resources/images/wLingua/wLingua5.png";
 import Swiper from "swiper";
+import { get_project } from '../../actions/project';
+import {projects} from "../../constants/project";
+import { useDispatch } from "react-redux";
 
+const imgArray = [{image: test}, {image: test2}, {image: test3}, {image: test4}, {image: test5}];
 
 const Project = props => {
+  console.log('ssssssssssssssssssssssssssssssss');
+
   const [ citeDarkTheme,    setCiteDarkTheme ]    = useContext( ThemesStatus);
   const [ citeLightTheme,   setCiteLightTheme ]   = useContext( ThemesStatus);
+  const dispatch = useDispatch();
+  const location = useLocation();
   const root = document.documentElement;
 
-  const imgArray = [{image: test}, {image: test2}, {image: test3}, {image: test4}, {image: test5}];
-
-  let swiper = new Swiper('.swiper-container', {
-    effect: 'coverflow',
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: 'auto',
-    coverflowEffect: {
-      rotate: 10,
-      stretch: 0,
-      depth: 150,
-      modifier: 1,
-      slideShadows : true,
-    },
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    loop: true,
-    pagination: {
-      el: '.swiper-pagination',
-    },
-  });
+  let swiper ={};
 
   useEffect(()=>{
+    console.log('ssssssssssssssssssssssssssssssss');
+
     if(citeDarkTheme.citeDarkTheme || !citeLightTheme.citeLightTheme){
       root.style.setProperty('--fontBorderColor', "orange");
       root.style.setProperty('--fontSimpleColor', "white");
@@ -64,8 +53,54 @@ const Project = props => {
 
     }
   },[citeDarkTheme.citeDarkTheme, citeLightTheme.citeLightTheme]);
+  console.log('dddddddddddddddddddddddddddddddddd');
 
   useEffect(()=>{
+    //load data for current project
+
+    debugger
+    try{
+      let title2 = location.pathname;
+      const title = "wLingua";
+      const data = {
+        type: projects.get_project,
+        payload: title
+      };
+      debugger
+      dispatch(data);
+      debugger
+      console.log('dddddddddddddddddddddddddddddddddd', data, 'kkkkkkkkkkkkkkkkkkkkkkkkk', title2);
+
+    }catch (e) {
+      debugger
+
+      console.log('lllllllllllll', e);
+    }
+
+    //load swiper before render
+    swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 5,
+        stretch: 0,
+        depth: 150,
+        modifier: 1,
+        slideShadows : true,
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+
+    //add orientation flag for img
     let imgObj = new Image();
     for(let i =0; i < imgArray.length; i++){
       imgObj.src= imgArray[i].image;
@@ -74,10 +109,8 @@ const Project = props => {
       }else{
         imgArray[i].orientation = 'portrait'
       }
-      console.log('hhhhhhhhhhhhhhhhhhhh', imgArray[i].orientation)
     }
   },[]);
-
 
   return(
     <div className="project_container">
@@ -87,8 +120,8 @@ const Project = props => {
           <div className="swiper-wrapper">
             {
               imgArray.map( (item, index)=> (
-                <div key={index} className={` swiper-slide ${item.orientation === 'portrait' ? 'swiper-slide-portrait' : 'swiper-slide-landscape'}`}>
-                  <img className={`${item.orientation === 'portrait' ? 'project_img_landscape' : 'project_img_portrait'} `}
+                <div key={index} className={` swiper-slide ${item.orientation === 'landscape' ? 'swiper-slide-landscape' : 'swiper-slide-portrait'}`}>
+                  <img className={`${item.orientation === 'landscape' ? 'project_img_landscape' : 'project_img_portrait'} `}
                        src={item.image} alt="project image"/>
                 </div>
               ) )

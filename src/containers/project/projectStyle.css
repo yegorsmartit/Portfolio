@@ -48,8 +48,8 @@
     /*display: inline-block;*/
     background-position: center;
     background-size: cover;
-    height: 400px;
-    width: 250px;
+    height: 450px;
+    width: 650px;
     border-radius: 10px;
     margin-right: 10px;
     background: black;
@@ -58,8 +58,8 @@
 
 .project_img_landscape{
     /*max-width: 100px;*/
-    height: 400px;
-    width: 600px;
+    height: 450px;
+    width: 650px;
     border-radius: 10px;
     margin-right: 10px;
     /*float: left;*/
@@ -69,8 +69,8 @@
     /*display: inline-block;*/
     background-position: center;
     background-size: cover;
-    height: 400px;
-    width: 600px;
+    height: 450px;
+    width: 300px;
     border-radius: 10px;
     margin-right: 10px;
     background: black;
@@ -79,8 +79,8 @@
 
 .project_img_portrait{
     /*max-width: 100px;*/
-    height: 400px;
-    width: 250px;
+    height: 450px;
+    width: 300px;
     border-radius: 10px;
     margin-right: 10px;
     /*float: left;*/

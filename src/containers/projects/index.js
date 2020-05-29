@@ -45,6 +45,7 @@ const Projects = props =>{
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap' }}>
         <div className={`${animationClass}`}>
           <CardONMM img={inviteMeLogo}
+                    imgTitle={inviteMe.imgTitle}
                     title={inviteMe.title}
                     description={inviteMe.description}
                     technologies={inviteMe.technologies}
@@ -56,6 +57,7 @@ const Projects = props =>{
         </div>
         <div className={`${animationClass}`}>
           <CardONMM img={DRNKAR_logo}
+                    imgTitle={DRNKAR.imgTitle}
                     title={DRNKAR.title}
                     description={DRNKAR.description}
                     technologies={DRNKAR.technologies}
@@ -67,6 +69,7 @@ const Projects = props =>{
         </div>
         <div className={`${animationClass}`}>
           <CardONMM img={nda_logo}
+                    imgTitle={CommunicationsControl.imgTitle}
                     title={CommunicationsControl.title}
                     description={CommunicationsControl.description}
                     technologies={CommunicationsControl.technologies}
@@ -78,6 +81,7 @@ const Projects = props =>{
         </div>
         <div className={`${animationClass}`}>
           <CardONMM img={mixFit_logo}
+                    imgTitle={mixFit.imgTitle}
                     title={mixFit.title}
                     description={mixFit.description}
                     technologies={mixFit.technologies}
@@ -89,6 +93,7 @@ const Projects = props =>{
         </div>
         <div className={`${animationClass}`}>
           <CardONMM img={nda_logo}
+                    imgTitle={StaffControl.imgTitle}
                     title={StaffControl.title}
                     description={StaffControl.description}
                     technologies={StaffControl.technologies}
@@ -100,6 +105,7 @@ const Projects = props =>{
         </div>
         <div className={`${animationClass}`}>
           <CardONMM img={privetMir_logo}
+                    imgTitle={privetMir.imgTitle}
                     title={privetMir.title}
                     description={privetMir.description}
                     technologies={privetMir.technologies}
@@ -111,6 +117,7 @@ const Projects = props =>{
         </div>
         <div className={`${animationClass}`}>
           <CardONMM img={nda_logo}
+                    imgTitle={TextRecognition.imgTitle}
                     title={TextRecognition.title}
                     description={TextRecognition.description}
                     technologies={TextRecognition.technologies}
@@ -122,6 +129,7 @@ const Projects = props =>{
         </div>
         <div className={`${animationClass}`}>
           <CardONMM img={wLingua_logo}
+                    imgTitle={wLingua.imgTitle}
                     title={wLingua.title}
                     description={wLingua.description}
                     technologies={wLingua.technologies}
@@ -133,6 +141,7 @@ const Projects = props =>{
         </div>
         <div className={`${animationClass}`}>
           <CardONMM img={nda_logo}
+                    imgTitle={workControl.imgTitle}
                     title={workControl.title}
                     description={workControl.description}
                     technologies={workControl.technologies}

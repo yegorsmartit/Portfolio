@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 const CardONMM = (props)=> {
-  const { img, title, technologies, control,   process } =props;
+  const { img, title, technologies, control, process, imgTitle } = props;
 
   let orientationImageClass = '';
 
@@ -60,7 +60,7 @@ const CardONMM = (props)=> {
           <span className="cardONMM_link" >Подробенее</span>
         </div>
         <Link className="card_container_transparent" onMouseMove={ (event)=> OnMouseEnterListener( event ) }
-             onMouseOut={ event => OnMouseLeaveListener(event) } to={'/project'} />
+             onMouseOut={ event => OnMouseLeaveListener(event) } to={`/project/:${imgTitle}`} />
       </div>
     </div>
   )
