@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import './styleONMMSkills.css';
 import { connect } from "react-redux";
-import { useHistory } from "react-router-dom";
 import RoundProgressBar from "../RoundProgressBar";
+import { ThemesStatus } from "../../contexts/themes";
 
 const CardONMMSkills = (props)=> {
-  let history = useHistory();
 
+  const [citeDarkTheme, setCiteDarkTheme] = useContext(ThemesStatus);
   const { percents, skill, index } =props;
   const OnMouseEnterListener = (event) => {
     const centerHeight = event.nativeEvent.path[0].offsetHeight/2;
@@ -30,20 +30,14 @@ const CardONMMSkills = (props)=> {
     event.nativeEvent.path[1].style.transitionDuration = `0.5s`;
   };
 
-  const onClickCardHandler = ()=>{
-    history.push('/project')
-  };
-
   return (
     <div className="common_skills_card_container">
-      <div className="skills_card_container" >
+      <div className={citeDarkTheme.citeDarkTheme ?`skills_card_container darkColorClass` :`skills_card_container lightColorClass`} >
         <RoundProgressBar percents={percents} skill={skill} index={index}/>
-
         <div className="skills_card_container_transparent" onMouseMove={ (event)=> OnMouseEnterListener( event ) }
-             onMouseOut={ event => OnMouseLeaveListener(event) } onClick={ () => onClickCardHandler()} />
+             onMouseOut={ event => OnMouseLeaveListener(event) } />
       </div>
     </div>
-
   )
 
 };

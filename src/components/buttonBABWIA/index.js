@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 
 function ButtonBABWIA(props) {
-  const {  title, icon, path } = props;
-
+  const {  title, icon, path, titleButton } = props;
 
   const clickHandler = () =>{
     console.log('this is from babwia button', path);
@@ -20,7 +19,7 @@ function ButtonBABWIA(props) {
         <span className="button_BABWIA_span"/>
         <span className="button_BABWIA_span"/>
         <i className={`${icon} icon_buttonBABWIA`}/>
-        {title}
+        {titleButton}
       </Link>
     </div>
   )

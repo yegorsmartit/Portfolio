@@ -26,16 +26,16 @@ import privetMir3 from "./images/privetMir/privetMir3.png";
 import privetMir4 from "./images/privetMir/privetMir4.png";
 import privetMir5 from "./images/privetMir/privetMir5.png";
 
-export default {
+export const projectsImg =  {
   wLingua: [
-    { image: wLingua1, title: 'w_lingua' },
-    { image: wLingua2, title: 'w_lingua' },
-    { image: wLingua3, title: 'w_lingua' },
-    { image: wLingua4, title: 'w_lingua' },
-    { image: wLingua5, title: 'w_lingua' },
-    { image: wLingua6, title: 'w_lingua' },
-    { image: wLingua7, title: 'w_lingua' },
-    { image: wLingua8, title: 'w_lingua' },
+    { image: wLingua1, title: 'wLingua' },
+    { image: wLingua2, title: 'wLingua' },
+    { image: wLingua3, title: 'wLingua' },
+    { image: wLingua4, title: 'wLingua' },
+    { image: wLingua5, title: 'wLingua' },
+    { image: wLingua6, title: 'wLingua' },
+    { image: wLingua7, title: 'wLingua' },
+    { image: wLingua8, title: 'wLingua' },
   ],
 
   drnk: [
@@ -47,17 +47,17 @@ export default {
   ],
 
   inviteMe: [
-    { image: inviteMe1, title: 'invite_me' },
-    { image: inviteMe2, title: 'invite_me' },
-    { image: inviteMe3, title: 'invite_me' },
+    { image: inviteMe1, title: 'inviteMe' },
+    { image: inviteMe2, title: 'inviteMe' },
+    { image: inviteMe3, title: 'inviteMe' },
   ],
 
   mixFit: [
-    { image: mixFit1, title: 'mix_fit' },
-    { image: mixFit2, title: 'mix_fit' },
-    { image: mixFit3, title: 'mix_fit' },
-    { image: mixFit4, title: 'mix_fit' },
-    { image: mixFit5, title: 'mix_fit' },
+    { image: mixFit1, title: 'mixFit' },
+    { image: mixFit2, title: 'mixFit' },
+    { image: mixFit3, title: 'mixFit' },
+    { image: mixFit4, title: 'mixFit' },
+    { image: mixFit5, title: 'mixFit' },
   ],
 
   nda: [
@@ -65,11 +65,10 @@ export default {
   ],
 
   privetMir: [
-    { image: privetMir1, title: 'privet_mir' },
-    { image: privetMir2, title: 'privet_mir' },
-    { image: privetMir3, title: 'privet_mir' },
-    { image: privetMir4, title: 'privet_mir' },
-    { image: privetMir5, title: 'privet_mir' },
+    { image: privetMir1, title: 'privetMir' },
+    { image: privetMir2, title: 'privetMir' },
+    { image: privetMir3, title: 'privetMir' },
+    { image: privetMir4, title: 'privetMir' },
+    { image: privetMir5, title: 'privetMir' },
   ],
-
-}
+};

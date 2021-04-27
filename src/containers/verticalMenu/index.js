@@ -5,11 +5,11 @@ import ButtonBABWIA from '../../components/buttonBABWIA';
 import { Link, useLocation } from 'react-router-dom'
 import { ThemesStatus } from "../../contexts/themes";
 import { useTranslation } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 const VerticalMenu = () =>{
-  const { t, i18n } = useTranslation();
-  // console.log('fffffffffffffffffff', t, 'ssssssssssssssss', i18n);
 
+  const { t, i18n } = useTranslation();
   const [menuStatusCounter, setMenuStatusCounter] = useContext(MenuStatusContext);
   const [menuStatus, setMenuStatus] = useState('');
   let location = useLocation();
@@ -320,7 +320,7 @@ const VerticalMenu = () =>{
 
   return (
     <div className={`menu_main_container ${menuStatus}`}>
-      <div style={{display: 'flex', flexDirection: 'column', height: '30%', marginTop:'20%'}}>
+      <div className="menu_main_inner_container">
         {!menuStatusCounter.menuStatus &&
           <Fragment>
             <div className="menu_btn_container openMenuIcon menu_btn_hamburger" onClick={ ()=> openMenuHandler() }>
@@ -340,12 +340,12 @@ const VerticalMenu = () =>{
         }
         {menuStatusCounter.menuStatus &&
           <div className={`menu_btn_items_container`} >
-            <ButtonBABWIA onClick={ ()=>onClickButtonHandler ('main')}       title={'main'}
-                          icon={'fa fa-home'} path={'/'}/>
-            <ButtonBABWIA onClick={ ()=>onClickButtonHandler ('skills')}     title={'skills'}
-                          icon={'fa fa-sitemap'} path={'/skills'}/>
-            <ButtonBABWIA onClick={ ()=>onClickButtonHandler ('projects')}   title={'projects'}
-                          icon={'fa fa-folder'} path={'/projects'}/>
+            <ButtonBABWIA onClick={ ()=>onClickButtonHandler ('main')}       title={ "main" }
+                          icon={'fa fa-home'} path={'/'} titleButton = { t("main") }/>
+            <ButtonBABWIA onClick={ ()=>onClickButtonHandler ('skills')}     title={ "skills" }
+                          icon={'fa fa-sitemap'} path={'/skills'}  titleButton = { t("skills") }/>
+            <ButtonBABWIA onClick={ ()=>onClickButtonHandler ('projects')}   title={ 'projects' }
+                          icon={'fa fa-folder'} path={'/projects'}  titleButton = { t("projects") }/>
           </div>
         }
         {!menuStatusCounter.menuStatus &&
@@ -356,34 +356,40 @@ const VerticalMenu = () =>{
                 <i className="fa fa-home common_header_social_net_icon_font homeIcon" id="home_icon_font_id" />
               </div>
             </Link>
-            <Link to={`skills`}>
+            <Link to={`/skills`}>
               <div className="menu_btn_container skillsIcon skills_icon_location" id="skills_icon"
                    onClick={ ()=> onClickButtonHandler('skills') }>
                 <i className="fa fa-sitemap common_header_social_net_icon_font skillsIcon" id="skills_icon_font_id"/>
               </div>
             </Link>
-            <Link to={`projects`}>
+            <Link to={`/projects`}>
               <div className="menu_btn_container projectsIcon projects_icon_location" id="projects_icon"
                    onClick={ ()=> onClickButtonHandler('projects') }>
                 <i className="fa fa-folder common_header_social_net_icon_font projectsIcon" id="projects_icon_font_id"/>
               </div>
             </Link>
+
+            <a href="https://www.linkedin.com/in/yegor-okoshkin-473310b1/"
+               className="menu_btn_container projectsIcon linkedInIcon" target="_blank" >
+              <i className="fa fa-linkedin common_header_social_net_icon_font projectsIcon" />
+            </a>
+
           </Fragment>
         }
       </div>
       {menuStatusCounter.menuStatus &&
       <div className="menu_toggle_theme_container">
         <fieldset className="menu_toggle_theme_fieldset">
-          <legend className="menu_toggle_theme_legend"> THEMES</legend>
+          <legend className="menu_toggle_theme_legend"> { t("themes") } </legend>
           <div className="menu_toggle_theme_checkbox_container">
             <input type="checkbox" name="paralaxTheme" className={"input-toggle"}
                    checked={citeDarkTheme.citeDarkTheme} onChange={(event) => onChangeHandle(event, 'dark')}/>
-            <label htmlFor="paralaxTheme" className="menu_toggle_theme_checkbox_label"> dark </label>
+            <label htmlFor="paralaxTheme" className="menu_toggle_theme_checkbox_label"> { t("dark") } </label>
           </div>
           <div className="menu_toggle_theme_checkbox_container">
             <input type="checkbox" name="postalTheme" className={"input-toggle"}
                    checked={citeLightTheme.citeLightTheme} onChange={(event) => onChangeHandle(event, 'light')}/>
-            <label htmlFor="postalTheme" className="menu_toggle_theme_checkbox_label"> light </label>
+            <label htmlFor="postalTheme" className="menu_toggle_theme_checkbox_label"> { t("light") } </label>
           </div>
         </fieldset>
       </div>
@@ -391,7 +397,7 @@ const VerticalMenu = () =>{
       {menuStatusCounter.menuStatus &&
       <div className="menu_toggle_theme_container">
         <fieldset className="menu_toggle_theme_fieldset">
-          <legend className="menu_toggle_theme_legend"> LANGUAGES</legend>
+          <legend className="menu_toggle_theme_legend"> { t("languages") } </legend>
           <div className="menu_toggle_theme_checkbox_container">
             <input type="checkbox" name="paralaxTheme" className={"input-toggle"}
                    checked={citeRussianTheme.citeRussianTheme} onChange={(event) => onChangeHandle(event, 'russian')}/>
@@ -408,16 +414,16 @@ const VerticalMenu = () =>{
       {menuStatusCounter.menuStatus && location.pathname === "/projects" &&
       <div className="menu_toggle_theme_container" >
         <fieldset className="menu_toggle_theme_fieldset" >
-          <legend className="menu_toggle_theme_legend" > THEMES </legend>
+          <legend className="menu_toggle_theme_legend" > { t("themes") } </legend>
           <div className="menu_toggle_theme_checkbox_container" >
             <input type="checkbox" name="paralaxTheme" className={"input-toggle"}
                    checked={cardThemeParalax.cardThemeParalax} onChange={(event) => onChangeHandle(event, 'paralax')}/>
-            <label htmlFor="paralaxTheme" className="menu_toggle_theme_checkbox_label"> postal </label>
+            <label htmlFor="paralaxTheme" className="menu_toggle_theme_checkbox_label"> { t("postal") } </label>
           </div>
           <div className="menu_toggle_theme_checkbox_container" >
             <input type="checkbox" name="postalTheme" className={"input-toggle"}
                    checked={cardThemePostal.cardThemePostal} onChange={(event) => onChangeHandle(event, 'postal')}/>
-            <label htmlFor="postalTheme" className="menu_toggle_theme_checkbox_label" > paralax </label>
+            <label htmlFor="postalTheme" className="menu_toggle_theme_checkbox_label" > { t("parallax") } </label>
           </div>
         </fieldset>
       </div>

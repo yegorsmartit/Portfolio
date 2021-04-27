@@ -1,17 +1,17 @@
 import { projectsType } from '../constants/project';
 
 const initialState = {
-  project : null| []
+  project : null | [] | {},
+  projects: null | []
 };
 
 const projectReducer = ( state = initialState, action) =>{
-  console.log('ddddddddddddddddddddddddddddddddddddddddd', state);
+  console.log('ddddddddddddddddddddddddddddddddddddddddd', state,'ffffffffffffffff',  projectsType);
   switch (action.type){
-
-    case projectsType.get_project:
+    case projectsType.get_project_success_async:
       debugger
     {
-      console.log('ddddddddddddddddddddddddddddddddddddddddd', state, 'ddddddffffff', action.payload);
+      console.log('ddddddddddddddddddddddddddddddddddddddddd', state, 'ddddddffffff', action.payload, ';;;;;;;;;;', action);
       debugger
       return{
         // ...state,
@@ -19,11 +19,14 @@ const projectReducer = ( state = initialState, action) =>{
       }
       debugger
     } break;
-    case projectsType.get_projects:
+    case projectsType.get_projects_success_async:
     {
-      console.log('ddddddddddddddddddddddddddddddddddddddddd', state);
+      console.log('ddddddddddddddddddddddddddddddddddddddddd', state, 'lllllllllllllllllllllll', action);
       debugger
-      return action.data;
+      return{
+        ...state,
+        projects: action.payload
+      };
       break;
     }
     default:

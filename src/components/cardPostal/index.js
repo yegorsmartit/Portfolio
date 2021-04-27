@@ -3,10 +3,15 @@ import './stylePostal.css';
 // import mapStateToProps from "react-redux/es/connect/mapStateToProps";
 // import mapDispatchToProps from "react-redux/es/connect/mapDispatchToProps";
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const CardPostal = (props) => {
-  const { img, title, technologies, control, process } = props;
+  const { img, title, technologies, control, process, imgTitle } = props;
+  const history = useHistory();
+  const redirectToProject = () => {
+    history.push(`/project/:${imgTitle}`)
+  };
+
   return (
     <div className="card_postal_container">
       <div className="card_postal">
@@ -14,7 +19,7 @@ const CardPostal = (props) => {
           <img className="card_postal_img" src={img} alt="card_logo"/>
           <span className="cardPostal_link">{title}</span>
         </div>
-        <div  className="card_postal_details">
+        <div  className="card_postal_details" onClick={ ()=> redirectToProject()}>
           <div className="card_postal_details_inner">
             <div style={{ flex: 1 }}>
               <span className="innerPostalTitle">{title}</span>

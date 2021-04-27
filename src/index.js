@@ -15,16 +15,17 @@ import { ThemesStatusProvider } from "./contexts/themes";
 
 import BubbleLoader from "./components/loaders";
 import BubbleLoader2 from "./components/loader2";
-
-const store = initStore();
-
-sagaMiddleware.run(rootSaga);
+import Store from './store/configureStore';
+// const store = initStore();
+// sagaMiddleware.run(rootSaga);
 
 const app = (
   <Suspense fallback={ <BubbleLoader/> }>
+
     <ThemesStatusProvider>
       <MenuStatusProvider>
-        <Provider store={store} >
+        <Provider store={Store} >
+
           <MainRouter />
         </Provider>
       </MenuStatusProvider>

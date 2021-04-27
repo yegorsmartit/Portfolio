@@ -9,6 +9,27 @@
     "russian"   : "русский",
     "english"   : "английский",
     "postal"    : "открытка",
-    "parallax"  : "смещение"
+    "parallax"  : "смещение",
+
+
+    "mainPageSpanText1" :  "Добрый день,",
+    "mainPageSpanText2" :  "Я фулстек разработчик.",
+    "mainPageSpanText3" :  "JavaScript разработчик ",
+    "mainPageSpanText4" :  "с 2-ух летним стажем,",
+    "mainPageSpanText5" :  "работал с различными проектами,",
+    "mainPageSpanText6" :  " как с нуля так и продолжая",
+    "mainPageSpanText7" :  " существующие проекты",
+    "mainPageSpanText8" :  "Это моё портфолио",
+    "mainPageSpanText9" :  " комерческих проектов.",
+
+    "progress" : "прогресс",
+
+    "technologies": "Технологии",
+    "control"     : "Контроль",
+    "process"     : "Процесс",
+    "details"     : "Подобнее",
+    "title"       : "Название",
+    "link"        : "Ссылка",
+    "description" : "Описание"
 
 }

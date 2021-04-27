@@ -4,9 +4,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow-y: hidden;
+    margin-top: -5%;
 }
 
-.homePageSpan {
+.homePageSpanEng {
     overflow: hidden;
     white-space: nowrap;
     font-size: 36px;
@@ -15,41 +17,125 @@
     width: 0;
 }
 
-.homePageSpan:nth-child(1){
+.homePageSpanEng:nth-child(1){
     width: 8ch;
     animation: 0.5s cursorAnimation step-end 3 forwards,
     1s typingAnimation steps(8) forwards;
 }
 
-.homePageSpan:nth-child(2){
+.homePageSpanEng:nth-child(2){
+    width: 19ch;
+    animation: 0.5s cursorAnimation step-end 2s 5 forwards,
+    2s typingAnimation steps(19) 2s forwards;
+}
+
+.homePageSpanEng:nth-child(3){
+    width: 18ch;
+    animation: 0.5s cursorAnimation step-end 3.5s 5 forwards,
+    3s typingAnimation steps(18) 3.5s forwards;
+}
+
+.homePageSpanEng:nth-child(4){
+    width: 20ch;
+    animation: 0.5s cursorAnimation step-end 6s 5 forwards,
+    3s typingAnimation steps(20) 6s forwards;
+}
+
+.homePageSpanEng:nth-child(5){
+    width: 23ch;
+    animation: 0.5s cursorAnimation step-end 9s 5 forwards,
+    3s typingAnimation steps(23) 9s forwards;
+}
+
+.homePageSpanEng:nth-child(6){
+    width: 22ch;
+    animation: 0.5s cursorAnimation step-end 12s 6 forwards,
+    3s typingAnimation steps(22) 12s forwards;
+}
+
+.homePageSpanEng:nth-child(7){
+    width: 17ch;
+    animation: 0.5s cursorAnimation step-end 15s 5 forwards,
+    3s typingAnimation steps(17) 15s forwards;
+}
+
+.homePageSpanEng:nth-child(8){
+    width: 18ch;
+    animation: 0.5s cursorAnimation step-end 18s 5 forwards,
+    3s typingAnimation steps(18) 18s forwards;
+}
+
+.homePageSpanEng:nth-child(9){
+    width: 20ch;
+    animation: 0.5s cursorAnimation step-end 21s 6 forwards,
+    3s typingAnimation steps(20) 21s forwards;
+}
+
+.homePageSpanRus {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 36px;
+    border-right: solid 4px transparent;
+    color: transparent;
+    width: 0;
+}
+
+.homePageSpanRus:nth-child(1){
+    width: 12ch;
+    animation: 0.5s cursorAnimation step-end 3 forwards,
+    1s typingAnimation steps(12) forwards;
+}
+
+.homePageSpanRus:nth-child(2){
     width: 20ch;
     animation: 0.5s cursorAnimation step-end 2s 5 forwards,
     2s typingAnimation steps(20) 2s forwards;
 }
 
-.homePageSpan:nth-child(3){
-    width: 37ch;
-    animation: 0.5s cursorAnimation step-end 4.5s 7 forwards,
-    3s typingAnimation steps(37) 4.5s forwards;
+.homePageSpanRus:nth-child(3){
+    width: 20ch;
+    animation: 0.5s cursorAnimation step-end 3.5s 5 forwards,
+    3s typingAnimation steps(20) 3.5s forwards;
 }
 
-.homePageSpan:nth-child(4){
-    width: 34ch;
-    animation: 0.5s cursorAnimation step-end 8s 7 forwards,
-    3s typingAnimation steps(34) 8s forwards;
+.homePageSpanRus:nth-child(4){
+    width: 20ch;
+    animation: 0.5s cursorAnimation step-end 6s 5 forwards,
+    3s typingAnimation steps(20) 6s forwards;
 }
 
-.homePageSpan:nth-child(5){
+.homePageSpanRus:nth-child(5){
     width: 29ch;
-    animation: 0.5s cursorAnimation step-end 11s 7 forwards,
-    3s typingAnimation steps(29) 11s forwards;
+    animation: 0.5s cursorAnimation step-end 9s 5 forwards,
+    3s typingAnimation steps(29) 9s forwards;
 }
 
-.homePageSpan:nth-child(6){
-    width: 38ch;
-    animation: 0.5s cursorAnimation step-end 14s 7 forwards,
-    3s typingAnimation steps(38) 14s forwards;
+.homePageSpanRus:nth-child(6){
+    width: 25ch;
+    animation: 0.5s cursorAnimation step-end 12s 6 forwards,
+    3s typingAnimation steps(25) 12s forwards;
 }
+
+.homePageSpanRus:nth-child(7){
+    width: 21ch;
+    animation: 0.5s cursorAnimation step-end 15s 5 forwards,
+    3s typingAnimation steps(21) 15s forwards;
+}
+
+.homePageSpanRus:nth-child(8){
+    width: 18ch;
+    animation: 0.5s cursorAnimation step-end 18s 5 forwards,
+    3s typingAnimation steps(18) 18s forwards;
+}
+
+.homePageSpanRus:nth-child(9){
+    width: 20ch;
+    animation: 0.5s cursorAnimation step-end 21s 6 forwards,
+    3s typingAnimation steps(20) 21s forwards;
+}
+
+
+
 
 @keyframes cursorAnimation {
     0%{
@@ -73,5 +159,27 @@
     }
     to{
         color: white;
+    }
+}
+
+@media (min-width: 370px) and (max-width: 500px) {
+    .homePageSpanRus {
+        font-size: 19px;
+        margin-left: 8%;
+    }
+    .homePageSpanEng {
+        font-size: 21px;
+        margin-left: 5%;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 370px) {
+    .homePageSpanRus {
+        font-size: 16px;
+        margin-left: 8%;
+    }
+    .homePageSpanEng {
+        font-size: 21px;
+        margin-left: 5%;
     }
 }

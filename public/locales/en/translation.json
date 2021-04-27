@@ -9,6 +9,28 @@
     "russian"   : "russian",
     "english"   : "english",
     "postal"    : "postal",
-    "parallax"  : "parallax"
+    "parallax"  : "parallax",
+
+    "mainPageSpanText1" :  "Good day,",
+    "mainPageSpanText2" :  "I`m Fullstack developer.",
+    "mainPageSpanText3" :  "JavaScript Developer ",
+    "mainPageSpanText4" :  "with 2 years experience,",
+    "mainPageSpanText5" :  "worked in different projects",
+    "mainPageSpanText6" :  " from scratch or maintaining",
+    "mainPageSpanText7" :  " the existing projects",
+    "mainPageSpanText8" :  "This is my portfolio of",
+    "mainPageSpanText9" :  "real commercial projects.",
+
+    "progress" : "progress",
+
+    "technologies": "Technologies",
+    "control"     : "Control",
+    "process"     : "Process",
+    "details"     : "Details",
+    "title"       : "Title",
+    "link"        : "Link",
+    "description" : "Description"
+
+
 
 }

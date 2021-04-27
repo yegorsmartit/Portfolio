@@ -2,14 +2,15 @@ import React from 'react';
 import './styleONMM.css';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 const CardONMM = (props)=> {
   const { img, title, technologies, control, process, imgTitle } = props;
-
+  const {t} = useTranslation();
   let orientationImageClass = '';
-
   let imgObj = new Image();
   imgObj.src= img;
+
   if(imgObj.height < imgObj.width) {
     orientationImageClass = 'orientationImageClass';
   }
@@ -46,21 +47,21 @@ const CardONMM = (props)=> {
           </div>
           <div className="cardONMM_description_p" >
             <img className={ `${ orientationImageClass === '' ? 'cardONMM_img ': 'orientationImageClass'}  `} src={img} alt="project image" />
-            <span className="cardSpanTopic"> technologies </span>
+            <span className="cardSpanTopic"> { t("technologies") } </span>
             <span className="cardSpanText">{technologies} </span>
             <br/>
-            <span className="cardSpanTopic">control: </span>
+            <span className="cardSpanTopic">{ t("control") }: </span>
             <br/>
             <span className="cardSpanText">{control}</span>
             <br/>
-            <span className="cardSpanTopic">process: </span>
+            <span className="cardSpanTopic">{t("process") }: </span>
             <br/>
             <span className="cardSpanText">{process}</span>
           </div>
-          <span className="cardONMM_link" >Подробенее</span>
+          <span className="cardONMM_link" >{ t("details") }</span>
         </div>
         <Link className="card_container_transparent" onMouseMove={ (event)=> OnMouseEnterListener( event ) }
-             onMouseOut={ event => OnMouseLeaveListener(event) } to={`/project/:${imgTitle}`} />
+             onMouseOut={ event => OnMouseLeaveListener(event) } to={`/project/:${title}`} />
       </div>
     </div>
   )

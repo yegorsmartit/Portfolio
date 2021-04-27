@@ -8,8 +8,8 @@
 .card_container{
     display: flex;
 
-    height: 350px;
-    width: 250px;
+    height: 450px;
+    width: 280px;
     /*background-color: white;*/
     background-image: var(--ParalaxCardBackgroundColor);
     border-radius: 10px;
@@ -20,8 +20,8 @@
 }
 
 .card_container_transparent {
-    height: 350px;
-    width: 250px;
+    height: 450px;
+    width: 280px;
     background-color: transparent;
     border-radius: 10px;
     position: absolute;

@@ -1,8 +1,10 @@
 import React, {useEffect} from 'react';
 import './roundProgressBarStyle.css';
+import {useTranslation} from "react-i18next";
 
 const RoundProgressBar = props =>{
   const { percents, skill, index } = props;
+  const {t, i18n} = useTranslation();
 
   useEffect(()=>{
      let element1 = document.querySelector(`#progress_bar_thumb_id${index}`).style;
@@ -22,7 +24,7 @@ const RoundProgressBar = props =>{
         <div className="logo">
           <h1 className="progress_bar_h1">{skill}</h1>
           <hr />
-          <h2 className="progress_bar_h2">progress</h2>
+          <h2 className="progress_bar_h2">{ t("progress") }</h2>
         </div>
         <div className="progress-container">
           <svg className="progressBar" viewBox="0 0 64 64">
@@ -45,7 +47,7 @@ const RoundProgressBar = props =>{
           </svg>
           <div className="progress-content">
             <div className="progress_value">{percents}% </div>
-            <div className="progress_text">well done</div>
+            <div className="progress_text">{ t("progress") }</div>
           </div>
         </div>
       </div>

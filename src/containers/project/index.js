@@ -1,36 +1,33 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import {useEffect, useContext } from 'react';
-import  { useLocation }  from "react-router-dom";
+import React, { Fragment } from 'react';
+import { useEffect, useContext, useState } from 'react';
+import { useLocation } from "react-router-dom";
 import './projectStyle.css';
 import { ThemesStatus } from "../../contexts/themes";
-import test from "../../resources/images/wLingua/wLingua1.png";
-import test2 from "../../resources/images/wLingua/wLingua2.png";
-import test3 from "../../resources/images/wLingua/wLingua3.png";
-import test4 from "../../resources/images/wLingua/wLingua4.png";
-import test5 from "../../resources/images/wLingua/wLingua5.png";
-import Swiper from "swiper";
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/scrollbar/scrollbar.scss';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { EffectCoverflow, Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 import { get_project } from '../../actions/project';
-import {projects} from "../../constants/project";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {useTranslation} from "react-i18next";
 
-const imgArray = [{image: test}, {image: test2}, {image: test3}, {image: test4}, {image: test5}];
+SwiperCore.use([EffectCoverflow, Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
 const Project = props => {
-  console.log('ssssssssssssssssssssssssssssssss');
-
-  const [ citeDarkTheme,    setCiteDarkTheme ]    = useContext( ThemesStatus);
-  const [ citeLightTheme,   setCiteLightTheme ]   = useContext( ThemesStatus);
+  const [citeDarkTheme, setCiteDarkTheme] = useContext(ThemesStatus);
+  const [citeLightTheme, setCiteLightTheme] = useContext(ThemesStatus);
+  const project = useSelector((state) => state.projectReducer.project);
+  const [project2, setProject2] = useState(project);
+  const [projectImgArray, setProjectImgArray] = useState(project2.projectImg);
   const dispatch = useDispatch();
-  const location = useLocation();
+  const { t } = useTranslation();
+  // const location = useLocation();
   const root = document.documentElement;
 
-  let swiper ={};
-
-  useEffect(()=>{
-    console.log('ssssssssssssssssssssssssssssssss');
-
-    if(citeDarkTheme.citeDarkTheme || !citeLightTheme.citeLightTheme){
+  useEffect(() => {
+    if (citeDarkTheme.citeDarkTheme || !citeLightTheme.citeLightTheme) {
       root.style.setProperty('--fontBorderColor', "orange");
       root.style.setProperty('--fontSimpleColor', "white");
       root.style.setProperty('--BABWIAButtonBackgroundColor', "-webkit-linear-gradient(top, #494B4E, #27292C)");
@@ -40,7 +37,7 @@ const Project = props => {
       root.style.setProperty('--ParalaxCardBackgroundColor', `-webkit-linear-gradient(top, #494B4E, #27292C)`);
       root.style.setProperty('--ParalaxCardFontColor', "white");
 
-    }else{
+    } else {
       root.style.setProperty('--fontSimpleColor', "black");
       root.style.setProperty('--fontBorderColor', "white");
       root.style.setProperty('--BABWIAButtonBackgroundColor', "slategrey");
@@ -52,89 +49,103 @@ const Project = props => {
       root.style.setProperty('--MenuBackgroundColor', "-webkit-linear-gradient(top, #8D8F92, #cccccc)");
 
     }
-  },[citeDarkTheme.citeDarkTheme, citeLightTheme.citeLightTheme]);
-  console.log('dddddddddddddddddddddddddddddddddd');
+  }, [citeDarkTheme.citeDarkTheme, citeLightTheme.citeLightTheme]);
+
+  useEffect(() => {
+    //load data for current project
+    try {
+      const title = props.match.params.title.toString().slice(1);
+      const project = dispatch(get_project(title ));
+      setProject2(project);
+    } catch (err) {
+      console.log('this is from project page', err);
+    }
+  }, []);
 
   useEffect(()=>{
-    //load data for current project
-
+    setProject2(project);
+    setProjectImgArray(project.projectImg);
     debugger
-    try{
-      let title2 = location.pathname;
-      const title = "wLingua";
-      const data = {
-        type: projects.get_project,
-        payload: title
-      };
-      debugger
-      dispatch(data);
-      debugger
-      console.log('dddddddddddddddddddddddddddddddddd', data, 'kkkkkkkkkkkkkkkkkkkkkkkkk', title2);
+  },[project]);
 
-    }catch (e) {
-      debugger
+  const swiperClick = () =>{
+    console.log(';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;');
+  };
 
-      console.log('lllllllllllll', e);
-    }
-
-    //load swiper before render
-    swiper = new Swiper('.swiper-container', {
-      effect: 'coverflow',
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: 'auto',
-      coverflowEffect: {
-        rotate: 5,
-        stretch: 0,
-        depth: 150,
-        modifier: 1,
-        slideShadows : true,
-      },
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-      },
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    });
-
-    //add orientation flag for img
-    let imgObj = new Image();
-    for(let i =0; i < imgArray.length; i++){
-      imgObj.src= imgArray[i].image;
-      if(imgObj.height < imgObj.width) {
-        imgArray[i].orientation = 'landscape'
-      }else{
-        imgArray[i].orientation = 'portrait'
-      }
-    }
-  },[]);
-
-  return(
-    <div className="project_container">
-      <div className="project_container_inner">
-
-        <div className="swiper-container">
-          <div className="swiper-wrapper">
-            {
-              imgArray.map( (item, index)=> (
-                <div key={index} className={` swiper-slide ${item.orientation === 'landscape' ? 'swiper-slide-landscape' : 'swiper-slide-portrait'}`}>
-                  <img className={`${item.orientation === 'landscape' ? 'project_img_landscape' : 'project_img_portrait'} `}
-                       src={item.image} alt="project image"/>
-                </div>
-              ) )
-            }
+  return (
+    <Fragment>
+      <div className='project_swiper_container'>
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={3}
+          slideShadows={false}
+          centeredSlides={true}
+          coverflowEffect={{
+            rotate: 40,
+            stretch: 0,
+            depth: 500,
+            modifier: 1,
+            slideShadows: false
+          }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false
+          }}
+          loop={true}
+          grabCursor={true}
+          effect="coverflow"
+          navigation
+          pagination={{
+            clickable: true,
+            // el: ".swiper-pagination"
+            // background: "red"
+            // type: "progressbar"
+          }}
+          // onSlideChange={() => console.log('slide change')}
+          // onSwiper={(swiper) => console.log(swiper)}
+        >
+          { projectImgArray && projectImgArray.length && projectImgArray.map((item, index) => (
+            <SwiperSlide key={index} style={{ backgroundColor: 'transparent' }} onClick={swiperClick}
+                         className={` swiper-slide ${item.orientation === 'landscape' ? 'swiper-slide-landscape' : 'swiper-slide-portrait'}`}>
+              <img className={`${item.orientation === 'landscape' ? 'project_img_landscape' : 'project_img_portrait'} `}
+                   src={item.image} alt="project image"/>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className='project_info_container'>
+        <div className='project_info_inner_container'>
+          <div className="project_info_block_info">
+            <span className="project_info_titles">{ t("title") } :</span>
+            <span>{project2.title}</span>
           </div>
-          <div className="swiper-pagination"/>
+          <div className="project_info_block_info">
+            <span className="project_info_titles">{ t("technologies") } :</span>
+            <span>{project2.technologies}</span>
+          </div>
+          <div className="project_info_block_info">
+            <span className="project_info_titles">{ t("control") } :</span>
+            <span>{project2.control}</span>
+          </div>
+          <div className="project_info_block_info">
+            <span className="project_info_titles">{ t("process") }  :</span>
+            <span>{project2.process}</span>
+          </div>
+          {project2.link && <div className="project_info_block_info">
+            <span className="project_info_titles">{ t("link") }  :</span>
+            <a href={ project2.link} target="_blank"> <span>{ project2.link} </span> </a>
+          </div>}
+          <div className="project_info_block_info">
+            <span className="project_info_titles">{ t("description") }  :</span>
+            <span>{project2.description}</span>
+          </div>
         </div>
 
       </div>
-    </div>
+
+    </Fragment>
   )
 };
-
 
 
 export default Project;
